@@ -1,0 +1,28 @@
+# Ignore plugin directories
+/site/
+*.swp
+*.swo
+
+# Ignore Packer or Lazy plugin lock files
+packer_compiled.lua
+lazy-lock.json
+
+# Ignore temporary or backup files
+*~
+*.bak
+*.tmp
+
+# Ignore any personal database configuration files
+.db_config.json
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Neovim logs and crash reports
+.log
+*.log
+
+# Ignore Lua module cache
+luacache/
+
