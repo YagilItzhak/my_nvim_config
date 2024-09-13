@@ -9,6 +9,8 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+package.path = package.path .. ';/Users/yagilitzhak/.config/nvim/?.lua'
+
 -- Load individual config files
 require('settings')       -- General settings
 require('keymaps')        -- Key mappings
@@ -16,4 +18,3 @@ require('plugins')        -- Plugin management and setup
 require('lsp')            -- LSP configurations
 require('telescope')      -- Telescope key mappings and settings
 require('flow')           -- Flow.nvim settings (adjusted for your setup)
-

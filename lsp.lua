@@ -1,6 +1,6 @@
 local on_attach = function(client, bufnr)
-  local buf_set_keymap = vim.api.nvim_buf_set_keymap
-  local opts = { noremap = true, silent = true }
+local buf_set_keymap = vim.api.nvim_buf_set_keymap
+local opts = { noremap = true, silent = true }
 
   -- LSP key mappings
   buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -9,8 +9,14 @@ end
 
 -- LSP Configurations
 local lspconfig = require('lspconfig')
+-- Add clangd setup
+require'lspconfig'.clangd.setup {
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    root_dir = require'lspconfig'.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+    single_file_support = true
+}
 
-lspconfig.clangd.setup{ on_attach = on_attach }
 lspconfig.pyright.setup{ on_attach = on_attach }
 lspconfig.lua_ls.setup{ on_attach = on_attach }
 lspconfig.emmet_ls.setup{

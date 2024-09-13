@@ -14,4 +14,11 @@ map('n', '<leader>rr', ':FlowRunFile<CR>', options)
 map('n', '<leader>rt', ':FlowLauncher<CR>', options)
 map('n', '<leader>rp', ':FlowRunLastCmd<CR>', options)
 map('n', '<leader>ro', ':FlowLastOutput<CR>', options)
+-- Keymaps for C/C++ (LSP)
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
+
+-- Example keybinding to compile C/C++ files
+vim.api.nvim_set_keymap('n', '<leader>cc', ':!gcc % -o %< && ./%<<CR>', { noremap = true })
 
